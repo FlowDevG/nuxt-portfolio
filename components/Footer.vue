@@ -1,4 +1,5 @@
 <template>
+<div :class="`${$colorMode.value == 'light' ? '' : 'light-mode-pattern'}`">
  <div class="flex justify-center items-center bg-custom-black dark:bg-custom-white py-10">
   <NuxtLink :to="localePath('/privacy-policy')" class="text-white dark:text-black dark:hover:text-secondary-color font-thin dark:font-light hover:text-secondary-color hover:font-light">Privacy Policy</NuxtLink>
  </div>
@@ -6,7 +7,9 @@
   <div class="border-t-[1px] w-[60%] border-secondary-color dark:border-custom-black"></div>
  </div>
  <h1 class="text-center text-custom-white dark:text-black dark:bg-custom-white bg-custom-black dark:font-light py-10 text-2xl font-thin">{{ currentDate.toLocaleString("en-US", dateOptions) }}</h1>
- <div class="bg-custom-black dark:bg-secondary-color pt-3 dark:pt-0">
+</div>
+
+<div class="bg-custom-black dark:bg-secondary-color pt-3 dark:pt-0">
   <div class="flex flex-col mx-auto container md:flex-row gap-3 md:gap-0 items-center justify-between py-5 dark:text-black text-white flex-wrap">
     <div class="flex items-center justify-start gap-3 flex-1 md:mb-0">
       <div class="dark:bg-[#4b4b4b] dark:p-1 dark:rounded-lg">
@@ -32,6 +35,7 @@
     </div>
   </div>
  </div>
+
 </template>
 
 <script setup>
@@ -54,10 +58,22 @@ const date = new Date();
 
 currentYear.value = date.getFullYear();
 
-
-
-
 </script>
 
 <style scoped>
+.light-mode-pattern {
+  position: relative;
+}
+.light-mode-pattern::before {
+  position: absolute;
+  /* z-index: 100 !important; */
+  content: '';
+  background: url('~/assets/images/light-pattern.svg');
+  opacity: 0.05;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-size: fixed;
+  height: 100%;
+}
 </style>

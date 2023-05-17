@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#0B1120] dark:bg-[#eee] p-10 flex gap-10">
+  <div class="bg-custom-black dark:bg-custom-white md:py-10 flex gap-10">
     <slot></slot>
   </div>
 </template>
