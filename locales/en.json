@@ -1,0 +1,40 @@
+{
+  "navigation": {
+    "logoName": "George K.",
+    "navigationButton": "Hire Me"
+  },
+  "home": {
+    "bannerName": "George Kourtis",
+    "bannerText": "I'm a Web Developer who has unending enthusiasm for solving problems."
+  },
+  "contact": {
+    "bannerTitle": "Learn more about me..",
+    "bannerText": "Hey, I'm George Kourtis - hope you manage to say my name properly, but if not, no worries",
+    "form": {
+      "title": "Fill the form below for more information"
+    }
+  },
+  "newslletter": {
+    "title": "Sign Up For",
+    "updates": "Updates",
+    "dsc": "Subscribe to the newslleter to receive updates and new oncoming projects",
+    "button": "Subscribe",
+    "inputPlaceholder": "Enter your email"
+  },
+  "pageMeta": {
+    "title": "George Kourtis",
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "weather": {
+    "weatherTitle": "Live Weather",
+    "location": "Location",
+    "temp": "Temp",
+    "feelsLike": "Feels Like",
+    "humidity": "Humidity",
+    "speed": "Speed",
+    "deg": "Deg"
+  }
+}
