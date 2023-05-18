@@ -1,5 +1,6 @@
 <template>
-  <BaseSectionWrapper :class="`pt-20 ${$colorMode.value == 'light' ? 'dark-mode-pattern' : 'light-mode-pattern'}`">
+  <section>
+  <BaseSectionWrapper :class="`pt-20 ${$colorMode.value != 'dark' ? 'dark-mode-pattern' : 'light-mode-pattern'}`">
     <div class="flex-1 hidden lg:block">
     </div>
     
@@ -66,7 +67,7 @@
     <div class="flex-1 hidden lg:block"></div>
   </BaseSectionWrapper>
 
-  <BaseSectionWrapper :class="`py-10 ${$colorMode.value == 'light' ? 'dark-mode-pattern' : 'light-mode-pattern'}`">
+  <BaseSectionWrapper :class="`py-10 ${$colorMode.value != 'dark' ? 'dark-mode-pattern' : 'light-mode-pattern'}`">
   <div class="container lg:w-[77%] mx-auto md:px-10 xl:px-40">
     <div class="mb-16 text-center">
       <div class="flex justify-center">
@@ -82,20 +83,20 @@
       <div
         v-for="skill in skills" 
         :key="skill.id"
-        class="group relative rounded-xl space-y-6 overflow-hidden border-none hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.50)]"
+        class="group relative rounded-xl space-y-6 overflow-hidden border-none hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.40)]"
       >
         <img
-          class="mx-auto h-[24rem] w-full grayscale object-cover object-top transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+          class="mx-auto h-[15rem] w-full grayscale object-cover object-top transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
           :src="`homeImages/${skill.icon}.png`"
           :alt="skill.icon"
           loading="lazy"
           width="500"
           height="600"
         />
-        <div class="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-[3rem] bg-[#4b4b4bcf] translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
+        <div class="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-[3rem] bg-[#4b4b4b] translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
           <div>
-            <h4 class="text-xl font-semibold text-white">{{ skill.title }}</h4>
-            <span class="block text-sm text-secondary-color">{{ skill.level }}</span>
+            <h4 class="text-2xl font-semibold text-white">{{ skill.title }}</h4>
+            <span class="pb-3 block text-sm text-secondary-color">{{ skill.level }}</span>
           </div>
           <p class="mt-8 text-gray-300 dark:text-gray-400">{{ skill.description }}</p>
         </div>
@@ -104,18 +105,26 @@
   </div>
 </BaseSectionWrapper>
 
-<div :class="`${$colorMode.value == 'light' ? 'dark-mode-pattern' : 'light-mode-pattern'} bg-custom-black dark:bg-custom-white`">
+<div :class="`${$colorMode.value != 'dark' ? 'dark-mode-pattern' : 'light-mode-pattern'} bg-custom-black dark:bg-custom-white`">
   <div class="flex-1 hidden lg:block"></div>
     <div class="flex-auto">
        <Newsletter />
     </div>
   <div class="flex-1 hidden lg:block"></div>
 </div>
-
+</section>
 </template>
 
 <script setup lang="ts">
 import { SkillTypes } from '@/types/skill-types';
+
+
+// Middleware
+
+definePageMeta({
+  middleware: ["is-user-authenticated"]
+})
+
 
 const { t, locale } = useI18n();
 

@@ -12,5 +12,10 @@ export const isLoggedIn = defineStore('login', {
     loggedOut() {
       this.login = false;
     }
+  },
+  getters: {
+    isAuthenticated(): any {
+      return this.login
+    }
   }
 })

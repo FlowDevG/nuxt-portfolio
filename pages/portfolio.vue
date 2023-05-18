@@ -1,4 +1,5 @@
 <template>
+<section>
 <BaseSectionWrapper :class="`text-gray-600 ${$colorMode.value == 'light' ? '' : 'light-mode-pattern'}`">
   <div class="container px-10 py-24 mx-auto flex flex-wrap">
     <div class="flex w-full mb-20 flex-wrap">
@@ -36,6 +37,7 @@
   <Newsletter />
 </div>
 
+</section>
 </template>
 
 <script setup>

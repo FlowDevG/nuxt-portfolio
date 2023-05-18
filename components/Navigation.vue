@@ -3,7 +3,7 @@
  <div class="backdrop-blur-md items-center flex-wrap py-5 px-10">
   <div class="flex justify-between items-center flex-wrap container mx-auto">
   <div class="flex items-center justify-start gap-3 flex-1">
-    <NuxtLink to="/" class="flex gap-3 items-center">
+    <NuxtLink :to="localePath('/')" class="flex gap-3 items-center">
       <div class="bg-[#4b4b4bcf] rounded-lg p-1">
         <IconsCode 
           :mode="$colorMode.value"
@@ -255,6 +255,7 @@ const toggleLanguage = () => {
 
 const changeLanguage = (item: string) => {
   locale.value = item;
+  console.log('locale', locale.value);
   languageToggled.value = !languageToggled.value;
 };
 

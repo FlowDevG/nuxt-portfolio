@@ -1,4 +1,5 @@
 <template>
+  <section>
   <BaseSectionWrapper class="text-gray-600">
     <div class="container mx-auto px-10 py-24 flex flex-wrap">
       <div class="flex w-full mb-20 flex-wrap">
@@ -14,10 +15,16 @@
   <div class="bg-custom-black dark:bg-custom-white justify-center">
     <Newsletter />
   </div>
-
+</section>
 </template>
 
 <script setup>
+
+// Middleware
+
+definePageMeta({
+  middleware: ["is-user-authenticated"]
+})
 
 const { t } = useI18n();
 

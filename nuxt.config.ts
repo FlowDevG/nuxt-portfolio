@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import en from './locales/en.json';
-import el from './locales/el.json';
+// import en from './locales/en.json';
+// import el from './locales/el.json';
 
 export default defineNuxtConfig({
   app: {

@@ -1,5 +1,5 @@
 <template>
-<div :class="`${$colorMode.value == 'light' ? '' : 'light-mode-pattern'}`">
+<div :class="`${$colorMode.value != 'dark' ? '' : 'light-mode-pattern'}`">
  <div class="flex justify-center items-center bg-custom-black dark:bg-custom-white py-10">
   <NuxtLink :to="localePath('/privacy-policy')" class="text-white dark:text-black dark:hover:text-secondary-color font-thin dark:font-light hover:text-secondary-color hover:font-light">Privacy Policy</NuxtLink>
  </div>

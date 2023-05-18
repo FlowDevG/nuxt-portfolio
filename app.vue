@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import  { isLoggedIn } from '~/stores/global.js';
+import  { isLoggedIn } from '~/stores/global.ts';
 
 const { t } = useI18n();
 

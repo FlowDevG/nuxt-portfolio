@@ -1,4 +1,5 @@
 <template>
+  <section>
   <section class="relative">
     <div class="bg-custom-black dark:bg-custom-white w-full">
     <div class="inset-0 h-[750px] mt-4">
@@ -139,7 +140,7 @@
   <div :class="`justify-center bg-custom-black dark:bg-custom-white ${$colorMode.value == 'light' ? '' : 'light-mode-pattern'}`">
     <Newsletter />
   </div>
-
+</section>
 </template>
 
 <script setup>
