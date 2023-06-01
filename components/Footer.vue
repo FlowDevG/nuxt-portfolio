@@ -1,7 +1,7 @@
 <template>
 <div :class="`${$colorMode.value != 'dark' ? '' : 'light-mode-pattern'}`">
  <div class="flex justify-center items-center bg-custom-black dark:bg-custom-white py-10">
-  <NuxtLink :to="localePath('/privacy-policy')" class="text-white dark:text-black dark:hover:text-secondary-color font-thin dark:font-light hover:text-secondary-color hover:font-light">Privacy Policy</NuxtLink>
+  <NuxtLink :to="localePath('/privacy-policy')" class="text-white dark:text-black dark:hover:text-secondary-color font-thin dark:font-light hover:text-secondary-color hover:font-light z-10">{{ $t("footer.privacyPolicy") }}</NuxtLink>
  </div>
  <div class="flex justify-center bg-custom-black dark:bg-custom-white">
   <div class="border-t-[1px] w-[60%] border-secondary-color dark:border-custom-black"></div>
@@ -10,14 +10,14 @@
 </div>
 
 <div class="bg-custom-black dark:bg-secondary-color pt-3 dark:pt-0">
-  <div class="flex flex-col mx-auto container md:flex-row gap-3 md:gap-0 items-center justify-between py-5 dark:text-black text-white flex-wrap">
+  <div class="flex flex-col mx-auto container md:flex-row gap-3 md:gap-0 items-center justify-between py-5 px-5 dark:text-black text-white flex-wrap">
     <div class="flex items-center justify-start gap-3 flex-1 md:mb-0">
       <div class="dark:bg-[#4b4b4b] dark:p-1 dark:rounded-lg">
         <IconsCode
           :mode="$colorMode.preference"
         />
       </div>
-      <NuxtLink :to="localePath('/')" class="text-xl font-bold">George K.</NuxtLink>
+      <NuxtLink :to="localePath('/')" class="text-xl font-bold">{{ $t("navigation.logoName") }}</NuxtLink>
     </div>
     <div class="copyrights order-2 md:order-none">
       <h3 class="font-thin dark:font-light">Copyright &copy; {{ currentYear }} | All Rights Reserved | <a href="mailto:gkourtis55@gmail.com" class="hover:dark:text-white hover:text-secondary-color hover:font-light">FlowGeeZ</a></h3>
@@ -63,10 +63,11 @@ currentYear.value = date.getFullYear();
 <style scoped>
 .light-mode-pattern {
   position: relative;
+  /* z-index: 1 !important; */
 }
 .light-mode-pattern::before {
   position: absolute;
-  /* z-index: 100 !important; */
+  /* z-index: 1 !important; */
   content: '';
   background: url('~/assets/images/light-pattern.svg');
   opacity: 0.05;

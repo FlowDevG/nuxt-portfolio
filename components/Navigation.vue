@@ -67,7 +67,7 @@
      class="hidden md:flex rounded items-center font-bold text-sm px-3 py-2 bg-white dark:text-white hover:dark:bg-black dark:bg-secondary-color hover:bg-secondary-color hover:text-white"
      @click="determineButtonStatus()"
      >
-      {{ userStatus.login ? "Logout" : "Login" }}
+      {{ userStatus.login ? $t("navigation.toggleLogin.logout") : $t("navigation.toggleLogin.login") }}
     </button>
   </div>
  </div>
@@ -114,20 +114,20 @@
        class="mt-10 flex rounded items-center font-bold text-sm px-10 py-2 bg-white dark:text-white hover:dark:bg-secondary-color dark:bg-custom-black hover:bg-secondary-color hover:text-white"
        @click="determineButtonStatus()"
       >
-      {{ userStatus.login ? "Logout" : "Login" }}
+      {{ userStatus.login ? $t("navigation.toggleLogin.logout") : $t("navigation.toggleLogin.login") }}
       </button>
     </div>
-    <h1 class="text-center text-white dark:text-black text-xl mt-10 font-thin dark:font-light">Find me on Social</h1>
+    <h1 class="text-center text-white dark:text-black text-xl mt-10 font-thin dark:font-light">{{ $t("navigation.findMeOnSocial") }}</h1>
     <div class="flex items-center gap-5 justify-center mt-10">
-      <div class="hover:scale-125">
+      <NuxtLink to="https://github.com/FlowDevG" target="_blank" class="hover:scale-125">
         <IconsGitHub :mode="$colorMode.preference" class="hover:scale-125" />
-      </div>
-      <div class="hover:scale-125">
+      </NuxtLink>
+      <NuxtLink to="https://www.facebook.com/giwkourtis/" target="_blank" class="hover:scale-125">
         <IconsFacebook :mode="$colorMode.preference" class="hover:scale-125" />
-      </div>
-      <div class="hover:scale-125">
+      </NuxtLink>
+      <NuxtLink to="https://www.linkedin.com/in/george-kourtis/" target="_blank" class="hover:scale-125">
         <IconsLinkedIn :mode="$colorMode.preference" class="hover:scale-125" />
-      </div>
+      </NuxtLink>
     </div>
     <p class="text-center text-white dark:text-black font-thin dark:font-light mt-10">George Kourtis. All Rights Reserved</p>
 </div>

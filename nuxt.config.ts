@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     strategy: "prefix",
-    lazy: true,
+    // lazy: true,
     langDir: 'locales',
   },
   tailwindcss: {

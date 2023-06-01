@@ -48,14 +48,17 @@
             <img src="~/assets/images/biopic-removebg-preview.png" alt="bio-picture" class="rounded-full w-[4rem] ml-2">
           </div>
           <div class="flex flex-col items-center text-center justify-center">
-            <h2 class="font-medium title-font mt-4 text-white dark:text-custom-black text-lg">George Kourtis</h2>
+            <h2 class="font-medium title-font mt-4 text-white dark:text-custom-black text-lg">{{ $t("home.aboutSection.name") }}</h2>
             <div class="w-12 h-1 bg-secondary-color rounded mt-2 mb-4"></div>
-            <p class="text-base text-gray-400 dark:text-custom-black">Raclette knausgaard hella meggs normcore williamsburg enamel pin sartorial venmo tbh hot chicken gentrify portland.</p>
+            <p class="text-base text-gray-400 dark:text-custom-black">{{ $t("home.aboutSection.shortDesc") }}</p>
           </div>
         </div>
         <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-secondary-color sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-          <p class="leading-relaxed text-lg mb-4 text-gray-400 dark:text-custom-black">Meggings portland fingerstache lyft, post-ironic fixie man bun banh mi umami everyday carry hexagon locavore direct trade art party. Locavore small batch listicle gastropub farm-to-table lumbersexual salvia messenger bag. Coloring book flannel truffaut craft beer drinking vinegar sartorial, disrupt fashion axe normcore meh butcher. Portland 90's scenester vexillologist forage post-ironic asymmetrical, chartreuse disrupt butcher paleo intelligentsia pabst before they sold out four loko. 3 wolf moon brooklyn.</p>
-          <NuxtLink :to="`bio/biography_${locale}.pdf`" target="_blank" class="text-secondary-color hover:text-white inline-flex items-center cursor-pointer">Learn More
+          <p class="leading-relaxed text-lg mb-4 text-gray-400 dark:text-custom-black">
+            {{ $t("home.aboutSection.fullDesc") }}
+          </p>
+          <NuxtLink :to="`bio/biography_${locale}.pdf`" target="_blank" class="text-secondary-color hover:text-white inline-flex items-center cursor-pointer">
+            {{ $t("home.aboutSection.showBio") }}
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
@@ -71,11 +74,10 @@
   <div class="container lg:w-[77%] mx-auto md:px-10 xl:px-40">
     <div class="mb-16 text-center">
       <div class="flex justify-center">
-        <h1 class="bg-clip-text text-transparent bg-gradient-to-r mb-5 from-white to-secondary-color md:text-4xl text-2xl md:pt-5 dark:bg-gradient-to-r dark:from-secondary-color dark:to-custom-black font-extrabold tracking-[0.05em] animate-typing overflow-hidden whitespace-nowrap border-r-[1px] dark:border-r-black border-r-white pr-5">Services i use to work with..</h1>
+        <h1 class="bg-clip-text text-transparent bg-gradient-to-r mb-5 from-white to-secondary-color md:text-4xl text-2xl md:pt-5 dark:bg-gradient-to-r dark:from-secondary-color dark:to-custom-black font-extrabold tracking-[0.05em] animate-typing overflow-hidden whitespace-nowrap border-r-[1px] dark:border-r-black border-r-white pr-5">{{ $t("home.experienceSection.name") }}</h1>
       </div>
       <p class="text-gray-400 dark:text-custom-black pb-10">
-        Tailus prides itself not only on award-winning technology, but also on the talent of its
-        people of some of the brightest minds and most experienced executives in business.
+        {{ $t("home.experienceSection.dsc") }}
       </p>
     </div>
     <div

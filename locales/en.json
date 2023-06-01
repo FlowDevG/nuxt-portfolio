@@ -1,11 +1,29 @@
 {
   "navigation": {
     "logoName": "George K.",
-    "navigationButton": "Hire Me"
+    "navigationButton": "Hire Me",
+    "toggleLogin": {
+      "login": "Login",
+      "logout": "Logout"
+    },
+    "findMeOnSocial": "Find me on Social"
+  },
+  "footer": {
+    "privacyPolicy": "Privacy Policy"
   },
   "home": {
     "bannerName": "George Kourtis",
-    "bannerText": "I'm a Web Developer who has unending enthusiasm for solving problems."
+    "bannerText": "I'm a Web Developer who has unending enthusiasm for solving problems.",
+    "aboutSection": {
+      "name": "George Kourtis",
+      "shortDesc": "Let's connect and create remarkable digital experiences together!",
+      "fullDesc": "I'm George Kourtis, a passionate front-end developer based in Greece. With three years of experience in JavaScript, HTML, CSS, WordPress, and Vue.js, I create seamless web experiences. I thrive on innovation and enjoy tackling complex problems with elegant solutions. My attention to detail and dedication to clean code ensure high-quality results. Continuous learning is my driving force. I stay up to date with the latest trends and frameworks, providing innovative solutions that exceed client expectations.",
+      "showBio": "Biography"
+    },
+    "experienceSection": {
+      "name": "Services i use to work with..",
+      "dsc": "I have gained expertise in a range of languages and tools including JavaScript, HTML, CSS, WordPress, Vue.js, and Git. These technologies have empowered me to create dynamic and engaging web experiences."
+    }
   },
   "contact": {
     "bannerTitle": "Learn more about me..",
@@ -13,6 +31,9 @@
     "form": {
       "title": "Fill the form below for more information"
     }
+  },
+  "portfolio": {
+    "dsc": "Welcome to my portfolio showcase! Here you will find a collection of projects that highlight my skills and expertise as a junior developer. Through these projects, I aim to demonstrate my ability to create engaging web applications, websites, and mobile applications. Each project showcases my problem-solving abilities, attention to detail, and dedication to delivering high-quality work."
   },
   "newslletter": {
     "title": "Sign Up For",
@@ -36,5 +57,8 @@
     "humidity": "Humidity",
     "speed": "Speed",
     "deg": "Deg"
+  },
+  "privacy-policy": {
+    "title": "Privacy Policy"
   }
 }
