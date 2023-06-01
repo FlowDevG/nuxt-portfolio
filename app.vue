@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import  { isLoggedIn } from '~/stores/global.js';
+import  { isLoggedIn } from '~/stores/global.ts';
 
 const { t } = useI18n();
 
@@ -17,7 +17,11 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: "I'm a front end developer, making awesome user interfaces for my clients."
+      content: "I'm a front end developer, making awesome user interfaces for my clients. I'm working with especially with javascript, vue.js and tailwind css"
+    },
+    {
+      name: 'keywords',
+      content: 'developer, front-end ui-ux portfolio, javascript developer, vue developer, nuxt-deleloper, tailwind developer, programmer, coding, code'
     }
   ]
 });

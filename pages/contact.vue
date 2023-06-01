@@ -1,4 +1,5 @@
 <template>
+  <section>
   <section class="relative">
     <div class="bg-custom-black dark:bg-custom-white w-full">
     <div class="inset-0 h-[750px] mt-4">
@@ -134,18 +135,21 @@
         </div>
       </div>
   </div>
-  
-  <div class="py-10 bg-custom-black dark:bg-custom-white">
+  </section>
+
+  <div :class="`justify-center bg-custom-black dark:bg-custom-white ${$colorMode.value == 'light' ? '' : 'light-mode-pattern'}`">
     <Newsletter />
   </div>
-
-  </section>
+</section>
 </template>
 
 <script setup>
 import { LMarker, LControl, LIcon } from '@vue-leaflet/vue-leaflet';
 import { required, email, minLength } from '@vuelidate/validators';
 import { useVuelidate } from '@vuelidate/core';
+
+const config = useRuntimeConfig();
+
 // import L from "leaflet";
 
 const { t } = useI18n();
@@ -193,7 +197,7 @@ onMounted(() => {
 import { getWeather } from "~/api/weather";
 
 // const { fetch, pending, error } = await useHttp();
-const { data: currentWeather } = await useAsyncData("weather", () => $fetch(`https://api.openweathermap.org/data/2.5/weather?lat=40.63666412&lon=22.942162898&appid=11b0499bd13ab56063de7565a440eb97&units=metric`))
+const { data: currentWeather } = await useAsyncData("weather", () => $fetch(`${config.public.WEATHER_API_URL}/weather?lat=40.63666412&lon=22.942162898&appid=${config.public.WEATHER_API_KEY}&units=metric`))
 
 // const { data: { 
 //   value: { response: data, error: errorRes }
@@ -243,6 +247,20 @@ const submitForm = async () => {
 
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.light-mode-pattern {
+  position: relative;
+}
+.light-mode-pattern::before {
+  position: absolute;
+  /* z-index: 100 !important; */
+  content: '';
+  background: url('~/assets/images/light-pattern.svg');
+  opacity: 0.05;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-size: fixed;
+  height: 100%;
+}
 </style>

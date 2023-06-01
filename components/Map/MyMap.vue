@@ -72,7 +72,6 @@ const props = defineProps({
 });
 
 const myMap = ref(null);
-
 const minZoom = ref(3);
 const maxZoom = ref(15);
 
@@ -81,7 +80,7 @@ const mapReady = () => {
 };
 
 
-// Assing custom overlay to map based on mode used ( dark - light - system )
+// Assign custom overlay to map based on mode used ( dark - light - system )
 const computedMapURL = computed(() => {
   if (colorMode.preference == 'dark') {
     return "https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"

@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     //   }
     // },
     vueI18n: {
-      fallbackLocale: 'en',
+      // fallbackLocale: 'el',
       legacy: false,
     },
     locales: [
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     strategy: "prefix",
-    lazy: true,
+    // lazy: true,
     langDir: 'locales',
   },
   tailwindcss: {
@@ -62,7 +62,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      API_BASE_URL: 'https://api.openweathermap.org'
+      WEATHER_API_KEY: process.env.WEATHER_KEY,
+      WEATHER_API_URL: process.env.WEATHER_URL
     }
   }
 })

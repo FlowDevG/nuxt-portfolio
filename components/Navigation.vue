@@ -3,7 +3,7 @@
  <div class="backdrop-blur-md items-center flex-wrap py-5 px-10">
   <div class="flex justify-between items-center flex-wrap container mx-auto">
   <div class="flex items-center justify-start gap-3 flex-1">
-    <NuxtLink to="/" class="flex gap-3 items-center">
+    <NuxtLink :to="localePath('/')" class="flex gap-3 items-center">
       <div class="bg-[#4b4b4bcf] rounded-lg p-1">
         <IconsCode 
           :mode="$colorMode.value"
@@ -19,8 +19,8 @@
     >
       <NuxtLink
        v-if="!isOpen"
-       v-for="(item, index) in determineMenu"
-       :key="index"
+       v-for="item in determineMenu"
+       :key="item.id"
        :to="localePath(item.path)"
        class="text-white dark:text-black hover:dark:text-white text-[1.1rem] dark:hover:text-white font-light cursor-pointer"
        >
@@ -67,7 +67,7 @@
      class="hidden md:flex rounded items-center font-bold text-sm px-3 py-2 bg-white dark:text-white hover:dark:bg-black dark:bg-secondary-color hover:bg-secondary-color hover:text-white"
      @click="determineButtonStatus()"
      >
-      {{ userStatus.login ? "Logout" : "Login" }}
+      {{ userStatus.login ? $t("navigation.toggleLogin.logout") : $t("navigation.toggleLogin.login") }}
     </button>
   </div>
  </div>
@@ -101,8 +101,8 @@
     <div class="flex items-center flex-col py-10 overflow-y-auto">
       <ul class="list-none flex flex-col items-center mx-auto gap-10">
         <NuxtLink
-         v-for="(item, index) in determineMenu"
-         :key="index"
+         v-for="item in determineMenu"
+         :key="item.id"
          :to="localePath(item.path)"
          class="hover:scale-125 dark:hover:scale-105 text-white dark:text-custom-black hover:text-secondary-color dark:hover:text-secondary-color hover:dark:bg-[#4b4b4bcf] dark:rounded-lg dark:p-1 text-3xl font-light "
          @click="isOpen = !isOpen"
@@ -114,20 +114,20 @@
        class="mt-10 flex rounded items-center font-bold text-sm px-10 py-2 bg-white dark:text-white hover:dark:bg-secondary-color dark:bg-custom-black hover:bg-secondary-color hover:text-white"
        @click="determineButtonStatus()"
       >
-      {{ userStatus.login ? "Logout" : "Login" }}
+      {{ userStatus.login ? $t("navigation.toggleLogin.logout") : $t("navigation.toggleLogin.login") }}
       </button>
     </div>
-    <h1 class="text-center text-white dark:text-black text-xl mt-10 font-thin dark:font-light">Find me on Social</h1>
+    <h1 class="text-center text-white dark:text-black text-xl mt-10 font-thin dark:font-light">{{ $t("navigation.findMeOnSocial") }}</h1>
     <div class="flex items-center gap-5 justify-center mt-10">
-      <div class="hover:scale-125">
+      <NuxtLink to="https://github.com/FlowDevG" target="_blank" class="hover:scale-125">
         <IconsGitHub :mode="$colorMode.preference" class="hover:scale-125" />
-      </div>
-      <div class="hover:scale-125">
+      </NuxtLink>
+      <NuxtLink to="https://www.facebook.com/giwkourtis/" target="_blank" class="hover:scale-125">
         <IconsFacebook :mode="$colorMode.preference" class="hover:scale-125" />
-      </div>
-      <div class="hover:scale-125">
+      </NuxtLink>
+      <NuxtLink to="https://www.linkedin.com/in/george-kourtis/" target="_blank" class="hover:scale-125">
         <IconsLinkedIn :mode="$colorMode.preference" class="hover:scale-125" />
-      </div>
+      </NuxtLink>
     </div>
     <p class="text-center text-white dark:text-black font-thin dark:font-light mt-10">George Kourtis. All Rights Reserved</p>
 </div>
@@ -135,7 +135,8 @@
 
 </template>
 
-<script setup >
+<script setup lang="ts">
+import { MenuItemTypes } from '@/types/menu-item-types';
 import { ref } from 'vue';
 import { isLoggedIn } from '~/stores/global';
 
@@ -198,38 +199,46 @@ const determineButtonStatus = () => {
   }
 }
 
-const menuItemsEN = ref([
+const menuItemsEN = ref<MenuItemTypes[]>([
   {
+    id: 1,
     name:  'Home',
     path:  '/'
   },
   {
+    id: 2,
     name: 'About',
     path: '/about'
   },
   {
+    id: 3,
     name: 'Portfolio',
     path: '/portfolio'
   },
   {
+    id: 4,
     name: 'Contact',
     path: '/contact'
   }
 ])
-const menuItemsEL = ref([
+const menuItemsEL = ref<MenuItemTypes[]>([
   {
+    id: 1,
     name:  'Αρχική',
     path:  '/'
   },
   {
+    id: 2,
     name: 'Σχετικά',
     path: '/about'
   },
   {
+    id: 3,
     name: 'Portfolio',
     path: '/portfolio'
   },
   {
+    id: 4,
     name: 'Επικοινωνία',
     path: '/contact'
   }
@@ -237,7 +246,6 @@ const menuItemsEL = ref([
 
 
 // Custom Language Change
-
 const languageToggled = ref(false);
 
 
@@ -245,11 +253,11 @@ const toggleLanguage = () => {
   languageToggled.value = !languageToggled.value;
 };
 
-const changeLanguage = (item) => {
+const changeLanguage = (item: string) => {
   locale.value = item;
+  console.log('locale', locale.value);
   languageToggled.value = !languageToggled.value;
 };
-
 
 </script>
 
