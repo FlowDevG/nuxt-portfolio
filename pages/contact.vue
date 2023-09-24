@@ -13,16 +13,10 @@
             <LMarker
              visible
              draggable
-             :icon="icon"
              :lat-lng="position"
              @dragstart="dragging = true"
              @dragend="dragging = false"
             >
-              <!-- <l-icon
-                :icon-size="dynamicSize"
-                :icon-anchor="dynamicAnchor"
-                :icon-url="" >
-              </l-icon> -->
             </LMarker>
           </template>
 
@@ -144,7 +138,7 @@
 </template>
 
 <script setup>
-import { LMarker, LControl, LIcon } from '@vue-leaflet/vue-leaflet';
+import { LMarker, LControl } from '@vue-leaflet/vue-leaflet';
 import { required, email, minLength } from '@vuelidate/validators';
 import { useVuelidate } from '@vuelidate/core';
 
@@ -169,13 +163,8 @@ const getUserPosition = () => {
         lng: pos.coords.longitude
       }
     })
-    // zoom.value = 15;
   }
 };
-
-// const iconUrl = computed(() => {
-//   return require('@/assets/images/location.png');
-// });
 
 
 const dynamicSize = computed(() => {
@@ -198,13 +187,6 @@ import { getWeather } from "~/api/weather";
 
 // const { fetch, pending, error } = await useHttp();
 const { data: currentWeather } = await useAsyncData("weather", () => $fetch(`${config.public.WEATHER_API_URL}/weather?lat=40.63666412&lon=22.942162898&appid=${config.public.WEATHER_API_KEY}&units=metric`))
-
-// const { data: { 
-//   value: { response: data, error: errorRes }
-//  }
-// } = await useAsyncData("weather", () => fetch(getWeather()));
-
-
 
 // Update Zoom
 const ZoomMinus = () => {

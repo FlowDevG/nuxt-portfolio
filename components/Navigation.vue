@@ -14,7 +14,7 @@
   </div>
   <div class="hidden md:block">
     <div
-     v-if="userStatus.login" 
+     v-if="!userStatus.login" 
      class="flex gap-5"
     >
       <NuxtLink
@@ -28,7 +28,7 @@
      </NuxtLink>
     </div>
   </div>
-  <div class="flex items-center justify-end gap-3 flex-1">
+  <div class="flex items-center justify-end gap-5 flex-1">
     <div class="dark:bg-custom-black dark:rounded-lg dark:p-2 md:hidden">
       <IconsMobileMenuBars
         v-if="!isOpen"
@@ -63,12 +63,12 @@
         </div>
       </div>
     </div>
-    <button
+    <!-- <button
      class="hidden md:flex rounded items-center font-bold text-sm px-3 py-2 bg-white dark:text-white hover:dark:bg-black dark:bg-secondary-color hover:bg-secondary-color hover:text-white"
      @click="determineButtonStatus()"
      >
       {{ userStatus.login ? $t("navigation.toggleLogin.logout") : $t("navigation.toggleLogin.login") }}
-    </button>
+    </button> -->
   </div>
  </div>
 </div>

@@ -8,24 +8,24 @@
     </div>
     <div class="flex flex-wrap md:-m-2 -m-1 z-10">
       <div class="flex flex-wrap w-1/2">
-        <NuxtLink class="md:p-2 p-1 w-1/2 hover:cursor-pointer hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.50)] hover:scale-105 transition ease-in-out delay-100" to="https://ydraulikoskaterini.gr" target="_blank">
+        <NuxtLink class="md:p-2 p-1 w-1/2 hover:cursor-pointer hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.20)] hover:scale-105 transition ease-in-out delay-100" to="https://ydraulikoskaterini.gr" target="_blank">
           <img alt="gallery" class="w-full object-fit h-full object-center block" src="~/assets/images/portfolioImages/ydraylikoskaterini.png">
         </NuxtLink>
-        <NuxtLink class="md:p-2 p-1 w-1/2 hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.50)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://endisis.gr" target="_blank">
+        <NuxtLink class="md:p-2 p-1 w-1/2 hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.20)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://endisis.gr" target="_blank">
           <img alt="gallery" class="w-full object-fit h-full object-center block" src="~/assets/images/portfolioImages/endisis.png">
         </NuxtLink>
-        <NuxtLink class="md:p-2 p-1 w-full hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.50)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://vg-orthopedics.gr" target="_blank">
+        <NuxtLink class="md:p-2 p-1 w-full hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.20)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://vg-orthopedics.gr" target="_blank">
           <img alt="gallery" class="w-full h-full object-cover object-center block" src="~/assets/images/portfolioImages/vg-orthopedics.png">
         </NuxtLink>
       </div>
       <div class="flex flex-wrap w-1/2">
-        <NuxtLink class="md:p-2 p-1 w-full hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.50)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://goldenolympus.com" target="_blank">
+        <NuxtLink class="md:p-2 p-1 w-full hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.20)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://goldenolympus.com" target="_blank">
           <img alt="gallery" class="w-full h-full object-cover object-center block" src="~/assets/images/portfolioImages/goldenolympus.png">
         </NuxtLink>
-        <NuxtLink class="md:p-2 p-1 w-1/2 hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.50)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://olympusnektar.com" target="_blank">
+        <NuxtLink class="md:p-2 p-1 w-1/2 hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.20)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://olympusnektar.com" target="_blank">
           <img alt="gallery" class="w-full object-fit h-full object-center block" src="~/assets/images/portfolioImages/olympusnektar.png">
         </NuxtLink>
-        <NuxtLink class="md:p-2 p-1 w-1/2 hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.50)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://papados.gr" target="_blank">
+        <NuxtLink class="md:p-2 p-1 w-1/2 hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.20)] hover:cursor-pointer hover:scale-105 transition ease-in-out delay-100" to="https://papados.gr" target="_blank">
           <img alt="gallery" class="w-full object-fit h-full object-center block" src="~/assets/images/portfolioImages/papados.png">
         </NuxtLink>
       </div>

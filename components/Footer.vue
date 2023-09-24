@@ -11,7 +11,7 @@
 
 <div class="bg-custom-black dark:bg-secondary-color pt-3 dark:pt-0">
   <div class="flex flex-col mx-auto container md:flex-row gap-3 md:gap-0 items-center justify-between py-5 px-5 dark:text-black text-white flex-wrap">
-    <div class="flex items-center justify-start gap-3 flex-1 md:mb-0">
+    <div class="hidden items-center md:flex justify-start gap-3 flex-1 md:mb-0">
       <div class="dark:bg-[#4b4b4b] dark:p-1 dark:rounded-lg">
         <IconsCode
           :mode="$colorMode.preference"

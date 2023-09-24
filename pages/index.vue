@@ -6,12 +6,12 @@
     
     <div class="flex-auto">
       <div class="pt-10 flex flex-col items-center text-center">
-        <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-white to-secondary-color lg:text-[4.5rem] xl:text-[6.5rem] md:text-[3.5rem] dark:bg-gradient-to-r dark:from-secondary-color dark:to-custom-black text-5xl font-extrabold tracking-[0.05em]">Hello, I'm</h1>
+        <h1 ref="header" class="bg-clip-text opacity-0 text-transparent bg-gradient-to-r from-white to-secondary-color lg:text-[4.5rem] xl:text-[6.5rem] md:text-[3.5rem] dark:bg-gradient-to-r dark:from-secondary-color dark:to-custom-black text-5xl font-extrabold tracking-[0.05em]">Hello, I'm</h1>
         <br/>
         <div class="w-max">
-          <h1 class="bg-clip-text text-transparent bg-gradient-to-r pb-5 from-white to-secondary-color lg:text-[4.5rem] xl:text-[6.5rem] md:text-[3.5rem] md:pt-5 dark:bg-gradient-to-r dark:from-secondary-color dark:to-custom-black text-4xl font-extrabold tracking-[0.05em] animate-typing overflow-hidden whitespace-nowrap border-r-[1px] dark:border-r-black border-r-white pr-5">{{ $t('home.bannerName') }}</h1>
+          <h1 ref="largeHeader" class="opacity-0 bg-clip-text text-transparent leading-[5rem] bg-gradient-to-r pb-5 from-white to-secondary-color lg:text-[4.5rem] xl:text-[6.5rem] md:text-[3.5rem] md:pt-5 dark:bg-gradient-to-r dark:from-secondary-color dark:to-custom-black text-4xl font-extrabold tracking-[0.05em] animate-typing overflow-hidden whitespace-nowrap border-r-[1px] dark:border-r-black border-r-white pr-5">{{ $t('home.bannerName') }}</h1>
         </div>
-      <p class="mt-10 text-gray-400 dark:text-custom-black dark:font-light text-xl leading-8 md:text-xl xl:text-2xl">{{ $t('home.bannerText') }}</p>
+      <p ref="subtitle" class="mt-10 opacity-0 text-gray-400 dark:text-custom-black dark:font-light text-xl leading-8 md:text-xl xl:text-2xl">{{ $t('home.bannerText') }}</p>
     </div>
     <div class="flex items-center justify-center mt-10 rounded drop-shadow-[0px_-10px_200px_rgba(119,197,227,0.50)] xl:w-[750px] md:w-[600px] w-auto h-[350px] md:h-[450px] container mx-auto">
 
@@ -84,18 +84,19 @@
       class="grid sm:grid-cols-2 md:grid-cols-3 gap-10 px-10 sm:px-0 pb-10">
       <div
         v-for="skill in skills" 
+        ref="myCards"
         :key="skill.id"
-        class="group relative rounded-xl space-y-6 overflow-hidden border-none hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.40)]"
+        class="group grayscale-[20%] relative rounded-xl space-y-6 overflow-hidden border-none hover:drop-shadow-[0px_-10px_60px_rgba(3,201,136,0.20)]"
       >
         <img
-          class="mx-auto h-[15rem] w-full grayscale object-cover object-top transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+          class="mx-auto h-[15rem] w-full object-cover object-top transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
           :src="`homeImages/${skill.icon}.png`"
           :alt="skill.icon"
           loading="lazy"
           width="500"
           height="600"
         />
-        <div class="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-[3rem] bg-[#4b4b4b] translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
+        <div class="absolute bottom-0 inset-x-0 h-[200px] rounded-t-lg mt-auto px-8 py-[1rem] bg-[#4b4b4bcf] translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
           <div>
             <h4 class="text-2xl font-semibold text-white">{{ skill.title }}</h4>
             <span class="pb-3 block text-sm text-secondary-color">{{ skill.level }}</span>
@@ -120,19 +121,100 @@
 <script setup lang="ts">
 import { SkillTypes } from '@/types/skill-types';
 
+// Importing gsap lib for animations
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 // Middleware
-
 definePageMeta({
   middleware: ["is-user-authenticated"]
 })
-
 
 const { t, locale } = useI18n();
 
 useHead({
   title: t("pageMeta.home")
 });
+
+
+const myCards = ref();
+const header = ref();
+const subtitle = ref();
+const largeHeader = ref();
+
+// Implement gsap animations
+onMounted(() => {
+  header.value.style.top = ('translateY(-150px)');
+
+  gsap.to(subtitle.value, {
+    duration: 2,
+    delay: 2.2,
+    opacity: 1,
+    ease: 'power4.inOut'
+  });
+
+  gsap.to(header.value, {
+   duration: 2,
+   delay: 0.5,
+   y: 20,
+   ease: 'power4.inOut',
+   opacity: 1,
+  });
+
+  gsap.to(largeHeader.value, {
+    duration: 2,
+    delay: 2,
+    opacity: 1,
+    ease: 'power4.inOut'
+  });
+
+  // Animate cards
+
+  myCards.value.forEach((card: Object, index: any) => {
+    let eachDiv = myCards.value[index];
+
+    eachDiv.style.opacity = 0;
+    eachDiv.style.left = 'translateY(1000px)'
+    
+    let finalCard = gsap.timeline({
+      scrollTrigger: {
+      trigger: eachDiv,
+      start: '30% 80%',
+      end: 'bottom 80%',
+      scrub: true,
+      markers: false
+      }
+    });
+
+    finalCard.to(eachDiv, {
+      // x: -50,
+      delay: 2,
+      duration: 1.3,
+      ease: 'power4.inOut',
+      x: 0,
+      opacity: 1
+    });
+    
+  });
+
+  // let card = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: myCards.value.forEach((card: any) => card),
+  //     start: 'top center',
+  //     end: 'bottom center',
+  //     scrub: true,
+  //     markers: false
+  //   }
+  // });
+
+  // card.to(myCards.value.forEach((card: any) => card), {
+  //   x: 100
+  // })
+
+});
+
+
 
 const skills = ref<SkillTypes[]>([
   {
