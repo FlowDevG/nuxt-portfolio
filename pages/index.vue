@@ -115,12 +115,11 @@
     </div>
   <div class="flex-1 hidden lg:block"></div>
 </div>
-</section>
+  </section>
 </template>
 
 <script setup lang="ts">
 import { SkillTypes } from '@/types/skill-types';
-
 // Importing gsap lib for animations
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -170,7 +169,6 @@ onMounted(() => {
   });
 
   // Animate cards
-
   myCards.value.forEach((card: Object, index: any) => {
     let eachDiv = myCards.value[index];
 
@@ -198,22 +196,7 @@ onMounted(() => {
     
   });
 
-  // let card = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: myCards.value.forEach((card: any) => card),
-  //     start: 'top center',
-  //     end: 'bottom center',
-  //     scrub: true,
-  //     markers: false
-  //   }
-  // });
-
-  // card.to(myCards.value.forEach((card: any) => card), {
-  //   x: 100
-  // })
-
 });
-
 
 
 const skills = ref<SkillTypes[]>([
